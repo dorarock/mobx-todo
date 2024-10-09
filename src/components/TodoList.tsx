@@ -69,18 +69,13 @@ const TodoList: React.FC = observer(() => {
             <div className={classNames(styles.flexContainer, styles.headlineWrapper)}>
               <h3 className={styles.smallHeadline}>{list.title}</h3>
               <div className={styles.buttonsContainer}>
-                <button onClick={() => todoStore.currentListId = list.id}>Open</button>
-                <button onClick={() => todoStore.removeTodoList(list.id)}>Remove List</button>
+                <button onClick={() => todoStore.currentListId = list.id}>Open | </button>
+                <button onClick={() => todoStore.removeTodoList(list.id)}>Remove</button>
                 {/*<button onClick={() => todoStore.removeTodoList(list.id)}>Rename List</button>*/}
               </div>
             </div>
             {todoStore.currentListId === list.id && (
               <div>
-                <div className={styles.buttonsContainer}>
-                  <button onClick={() => setFilter("all")}>All</button>
-                  <button onClick={() => setFilter("completed")}>Completed</button>
-                  <button onClick={() => setFilter("incomplete")}>Incomplete</button>
-                </div>
                 <input
                   className={classNames(styles.inputCommon)}
                   type="text"
@@ -92,6 +87,11 @@ const TodoList: React.FC = observer(() => {
                     }
                   }}
                 />
+                <div className={styles.filtersContainer}>
+                  <button className={filter === 'all' ? styles.filterActive : ''} onClick={() => setFilter("all")}>All</button>
+                  <button className={filter === 'completed' ? styles.filterActive : ''} onClick={() => setFilter("completed")}>Completed</button>
+                  <button className={filter === 'incomplete' ? styles.filterActive : ''} onClick={() => setFilter("incomplete")}>Incomplete</button>
+                </div>
                 <ul>
                   {getTodosToDisplay().length === 0 ? (
                     <li>No tasks found</li>

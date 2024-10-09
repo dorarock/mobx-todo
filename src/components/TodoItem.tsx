@@ -37,6 +37,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
         {isEditing ? (
           <>
             <input
+              className={styles.editInput}
               type="text"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}

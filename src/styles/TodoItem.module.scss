@@ -23,6 +23,23 @@ ul {
 }
 
 .note {
+ width: 100%;
  display: flex;
  align-items: center;
+}
+
+.editInput {
+ border: none; /* Убираем стандартную рамку */
+ outline: none; /* Убираем обводку при фокусе */
+ padding: 0; /* Убираем отступы */
+ margin: 0; /* Убираем внешние отступы */
+ background: transparent; /* Убираем фоновый цвет */
+ box-shadow: none; /* Убираем тень */
+ font-family: inherit; /* Устанавливаем шрифт как у родителя */
+ font-size: inherit; /* Устанавливаем размер шрифта как у родителя */
+ line-height: inherit; /* Устанавливаем высоту строки как у родителя */
+
+ border-bottom: 1px solid var(--button-color);
+ color: var(--text-color);
+ width: 70%;
 }
