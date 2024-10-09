@@ -1,0 +1,54 @@
+:root {
+ --background-color: #ffffff;
+ --text-color: #252525;
+ --primary-color: #007bff;
+ --button-color: #6C63FF;
+ --input-border-color: #252525;
+}
+
+/* Определение темной темы */
+[data-theme='dark'] {
+ --background-color: #252525;
+ --text-color: white;
+ --input-border-color: #ffffff;
+}
+
+button {
+ background: none;           /* Убирает фоновое изображение */
+ border: none;              /* Убирает рамку */
+ padding: 0;                /* Убирает внутренние отступы */
+ margin: 0;                 /* Убирает внешние отступы */
+ font: inherit;             /* Устанавливает шрифт из родителя */
+ color: inherit;            /* Устанавливает цвет текста из родителя */
+ cursor: pointer;           /* Указывает, что это кнопка */
+ display: inline-block;     /* Позволяет использовать отступы и размеры */
+ text-align: center;        /* Центрирует текст */
+ text-decoration: none;
+}
+
+.App {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ height: 100vh;
+ background-color: var(--background-color);
+ padding: 20px 0 20px 0;
+ color: var(--text-color);
+ transition: all 0.3s ease, color 0.3s ease;
+}
+
+.menu {
+ width: 100%;
+ height: 40px;
+ display: flex;
+ justify-content: flex-end;
+ padding: 0 16px 0 16px;
+ box-sizing: border-box;
+}
+
+.themesBtn {
+ background-color: var(--button-color);
+ color: white;
+ padding: 8px 8px;
+ border-radius: 8px;
+}

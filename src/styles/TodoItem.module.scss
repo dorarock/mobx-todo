@@ -1,0 +1,28 @@
+ul {
+ padding: 0;
+ li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  line-height: 26px;
+ }
+}
+
+.checkbox {
+ width: 26px;
+ height: 26px;
+ border: 1px solid var(--button-color);
+ background: transparent;
+ margin-right: 18px;
+}
+
+.btnContainer {
+ display: flex;
+ gap: 8px;
+}
+
+.note {
+ display: flex;
+ align-items: center;
+}
