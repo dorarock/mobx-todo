@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { todoStore } from "../stores/todoStore";
+import React, {useState} from "react";
+import {todoStore} from "../stores/todoStore";
 import styles from '../styles/TodoItem.module.scss';
+import {Priority, Todo} from "../lib/types";
+import PriorityIcon from "./Icons/PriorityIcon";
 
-interface TodoItemProps {
-  id: number;
-  title: string;
-  completed: boolean;
+export interface TodoItemProps extends Todo {
+  listId: number;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed, priority, listId  }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
 
-  // TODO: дописать изменение текста тудушки
   const handleSaveEdit = () => {
-    todoStore.editTodo(id, newTitle);
+    todoStore.editTodo(listId, id, newTitle);
     setIsEditing(false);
   };
 
@@ -33,7 +32,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
           checked={completed}
           onChange={() => todoStore.toggleTodo(id)}
         />
-
         {isEditing ? (
           <>
             <input
@@ -52,6 +50,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
       </div>
 
       <div className={styles.btnContainer}>
+        <PriorityIcon id={id} priority={priority} />
         <button onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit"}
         </button>

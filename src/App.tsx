@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
-import SearchTodo from "./components/SearchTodo";
+import TodoLists from "./components/TodoLists";
+// import SearchTodo from "./components/SearchTodo";
 import styles from './styles/App.module.scss'
+import ButtonPurple from "./components/common/ButtonPurple/ButtonPurple";
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -23,10 +23,12 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.menu}>
-        <button className={styles.themesBtn} onClick={toggleTheme}>Switch theme</button>
+        {/*<SearchTodo />*/}
+        <div className={styles.themesBtn}>
+          <ButtonPurple onClickHandle={toggleTheme} btnText="Switch theme" />
+        </div>
       </div>
-      {/*<SearchTodo />*/}
-      <TodoList />
+      <TodoLists />
     </div>
   );
 }

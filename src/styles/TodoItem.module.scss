@@ -1,5 +1,8 @@
 ul {
  padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
  li {
   display: flex;
   align-items: center;
@@ -19,7 +22,29 @@ ul {
 
 .btnContainer {
  display: flex;
+ align-items: center;
  gap: 8px;
+}
+
+.priorityButton {
+ width: 20px;
+ height: 20px;
+ border: 1px solid var(--button-color);
+}
+
+.priorityButtonHight {
+ @extend .priorityButton;
+ background: darkred;
+}
+
+.priorityButtonLow {
+ @extend .priorityButton;
+ background: gray;
+}
+
+.priorityButtonNone {
+ @extend .priorityButton;
+ background: transparent;
 }
 
 .note {
@@ -42,4 +67,8 @@ ul {
  border-bottom: 1px solid var(--button-color);
  color: var(--text-color);
  width: 70%;
+}
+
+.priority {
+ color: red;
 }
